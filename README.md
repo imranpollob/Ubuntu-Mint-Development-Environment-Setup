@@ -90,10 +90,21 @@ sudo systemctl enable mysql.service
 ```bash
 sudo mysql_secure_installation
 ```
-Enter y for everything
+Enter `y` for everything
+
+Get the temporary MySQL password
+```bash
+sudo grep 'temporary password' /var/log/mysqld.log
+```
+Login using the password
 ```bash
 mysql -u root -p
 yourPassword
+```
+
+Change the default password
+```bash
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
 ```
 
 ***Method 2***
